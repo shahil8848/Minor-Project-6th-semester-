@@ -1,0 +1,58 @@
+<%- include('../includes/header') %>
+<%- include('../includes/navbar') %>
+
+<!-- Login Section Begin -->
+<div class="register-login-section spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="login-form">
+          <h2>Login</h2>
+
+          <% if (errorMessage && errorMessage.length > 0) { %>
+            <div style="color: red; margin-bottom: 15px;"><%= errorMessage %></div>
+          <% } %>
+
+          <!-- Login Form -->
+          <form action="/login" method="post">
+            <div class="group-input">
+              <label for="username">Username or email address *</label>
+              <input type="text" id="username" name="email" required>
+            </div>
+            <div class="group-input">
+              <label for="pass">Password *</label>
+              <input type="password" id="pass" name="password" required>
+            </div>
+            <div class="group-input gi-check">
+              <div class="gi-more">
+                <label for="save-pass">
+                  Save Password
+                  <input type="checkbox" id="save-pass">
+                  <span class="checkmark"></span>
+                </label>
+                <a href="/resetPassword" class="forget-pass">Forgot your password?</a>
+              </div>
+            </div>
+            <button type="submit" class="site-btn login-btn">Sign In</button>
+          </form>
+
+          <!-- Google Sign In -->
+          <div style="text-align: center; margin-top: 20px;">
+            <a href="/auth/google" class="site-btn" style="background-color: #DB4437; border: none;">
+              <i class="fa fa-google" style="margin-right: 8px;"></i> Sign In with Google
+            </a>
+          </div>
+
+          <!-- Switch to Register -->
+          <div class="switch-login" style="margin-top: 20px; text-align: center;">
+            <a href="/register" class="or-login">Or Create An Account</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Login Section End -->
+
+<%- include('../includes/footer') %>
